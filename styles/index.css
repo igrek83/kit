@@ -1,5 +1,6 @@
 @import url(../vendor/fonts.css);
 @import url(./page/page.css);
+@import url(./popup/popup.css);
 
 * {
   box-sizing: border-box;

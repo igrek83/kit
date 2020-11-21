@@ -2,6 +2,9 @@ const arr = document.querySelectorAll('.description__input');
 const array = Array.from(arr);
 const arrowRight = document.querySelector('.description__arrow_theme_right');
 const arrowLeft = document.querySelector('.description__arrow_theme_left');
+
+const button = document.querySelector('.header__button');
+const closeButton = document.querySelector('.popup__close');
 let width = 0;
 
 function number() {
@@ -96,3 +99,14 @@ function init() {
   myMap.geoObjects.add(myPlacemark);
 }
 ymaps.ready(init);
+
+function open() {
+  document.querySelector('.popup').classList.add('popup-open');
+}
+
+function close() {
+  document.querySelector('.popup').classList.remove('popup-open');
+}
+
+button.addEventListener('click', open);
+closeButton.addEventListener('click', close);

@@ -1,0 +1,30 @@
+@import url(./__close/popup__close.css);
+@import url(./__form/popup__form.css);
+
+@keyframes showing {
+  0% {
+    transform: rotate(-90deg);
+    opacity: 0;
+    transform-origin: -50vw 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+    transform-origin: -50vw 0;
+  }
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 20px;
+  padding: 30px 20px 20px;
+  background-color: #fff;
+  animation: showing 1s both;
+}

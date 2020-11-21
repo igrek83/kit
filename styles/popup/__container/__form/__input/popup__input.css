@@ -1,0 +1,29 @@
+.popup__input {
+  padding: 0 20px;
+  height: 45px;
+  width: 100%;
+  font-size: 18px;
+  color: #000;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 20px;
+  animation: showing 1s both 500ms;
+}
+
+.popup__input:hover {
+  border: 1px solid rgb(173, 171, 171);
+  transition: border .6s ease;
+}
+
+.popup__input:focus {
+  border: 1px solid rgb(173, 171, 171);
+}
+
+.popup__input::placeholder {
+  text-align: center;
+  font-size: 18px;
+  opacity: .5;
+  cursor: pointer;
+}

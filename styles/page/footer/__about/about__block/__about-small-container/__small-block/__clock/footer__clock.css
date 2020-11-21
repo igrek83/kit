@@ -1,3 +1,13 @@
-.footer__clock {
-  
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(3600deg);
+  }
+}
+
+.footer__clock:hover {
+  animation: rotation 3s 1 ease-in-out;
 }

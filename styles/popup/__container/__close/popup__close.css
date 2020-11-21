@@ -1,0 +1,24 @@
+.popup__close {
+  display: block;
+  width: 30px;
+  border-top: 5px solid #000;
+  transform: rotate(45deg);
+  position: relative;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 30px;
+}
+
+.popup__close::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  border-top: 5px solid #000;
+  transform: rotate(90deg);
+  top: -5px;
+  left: 0;
+}
+
+.popup__close:hover {
+  opacity: .5;
+}
