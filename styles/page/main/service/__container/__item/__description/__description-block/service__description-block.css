@@ -1,0 +1,8 @@
+@import url(./__item-title/service__item-title.css);
+@import url(./__ul/service__ul.css);
+@import url(./__ul/service__ul_theme_bottom.css);
+.service__description-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

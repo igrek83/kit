@@ -1,0 +1,23 @@
+@import url(./__container/description__container.css);
+@import url(./__slider/description__slider.css);
+@import url(./__number-block/description__number-block.css);
+.description {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 70px;
+}
+
+.description__big-image {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+}
+
+@media all and (max-width: 1800px) {
+  .description__big-image {
+    display: none;
+  }
+}

@@ -1,0 +1,7 @@
+@import url(./__text/footer__text.css);
+@import url(./__description-text/footer__description-text.css);
+.footer__about-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}

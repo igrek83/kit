@@ -1,0 +1,11 @@
+@media all and (max-width: 1240px) {
+  .header__ul_theme_small {
+    top: 30px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .header__ul_theme_small {
+    top: 25px;
+  }
+}

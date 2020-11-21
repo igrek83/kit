@@ -1,0 +1,7 @@
+@import url(./__arrow/description__arrow.css);
+@import url(./__arrow/description__arrow_theme_right.css);
+@import url(./__arrow/description__arrow_theme_left.css);
+.description__block-arrow {
+  display: flex;
+  margin-top: 83px;
+}

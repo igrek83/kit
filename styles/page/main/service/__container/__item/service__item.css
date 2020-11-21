@@ -1,0 +1,20 @@
+@import url(./__mini-block/service__mini-block.css);
+@import url(./__title/service__mini-title.css);
+@import url(./__description/service__description.css);
+.service__item {
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media all and (max-width: 620px) {
+  .service__item {
+    width: 400px;
+  }
+}
+@media all and (max-width: 430px) {
+  .service__item {
+    width: 300px;
+  }
+}

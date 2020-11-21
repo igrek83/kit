@@ -1,0 +1,22 @@
+@import url(./__name/description__name.css);
+@import url(./__name-span/description__name-span.css);
+@import url(./__number-container/description__number-container.css);
+
+.description__number-block {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: #eeeeee;
+  margin: 50px 0;
+  align-self: flex-end;
+  padding-top: 25px;
+  padding-left: 15%;
+}
+
+@media all and (max-width: 1800px) {
+  .description__number-block {
+    width: 100%;
+    padding-left: 15px;
+    align-items: center;
+  }
+}

@@ -1,0 +1,39 @@
+@import url(./__log/description__log.css);
+.description__slider-container {
+  transition: all 1s ease;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto, 1fr);
+}
+
+#slider-a:checked~.description__slider-container {
+  transform: translate(0);
+}
+
+#slider-b:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*1));
+}
+
+#slider-c:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*2));
+}
+
+#slider-d:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*3));
+}
+
+#slider-e:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*4));
+}
+
+#slider-g:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*5));
+}
+
+#slider-h:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*6));
+}
+
+#slider-j:checked~.description__slider-container {
+  transform: translate(calc(-100%/8*7));
+}

@@ -1,0 +1,33 @@
+@import url(./__ul/header__ul.css);
+@import url(./__ul/header__ul_theme_small.css);
+
+.header__menu-item {
+  position: relative;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 0;
+  color: #000;
+  cursor: pointer;
+}
+
+@media all and (max-width: 650px) {
+  .header__menu-item {
+    font-size: 16px;
+  }
+}
+
+.header__menu-item:hover {
+  color: #754e09;
+}
+
+.header__menu-item:hover .header__ul {
+  display: flex;
+}
+
+@media all and (max-width: 1000px) {
+  .header__menu-item:hover .header__ul {
+    z-index: 3;
+  }
+}

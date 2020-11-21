@@ -1,0 +1,13 @@
+.service__button {
+  outline: none;
+  border: none;
+  background-color: #565656;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 2.2px;
+}

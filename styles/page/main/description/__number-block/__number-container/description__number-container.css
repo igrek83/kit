@@ -1,0 +1,36 @@
+@import url(./__small-block/description__small-block.css);
+.description__number-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 1200px;
+  left: -320px;
+  padding-bottom: 50px;
+}
+
+@media all and (max-width: 1800px) {
+  .description__number-container {
+    position: static;
+  }
+}
+
+@media all and (max-width: 1220px) {
+  .description__number-container {
+    width: 570px;
+    flex-wrap: wrap;
+  }
+}
+
+@media all and (max-width: 620px) {
+  .description__number-container {
+    width: 370px;
+    flex-wrap: wrap;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .description__number-container {
+    width: 300px;
+    flex-wrap: wrap;
+  }
+}

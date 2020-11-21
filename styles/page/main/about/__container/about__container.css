@@ -1,0 +1,7 @@
+@import url(./__span/about__span.css);
+@import url(./__title/about__title.css);
+@import url(./__text/about__text.css);
+.about__container {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,20 @@
+@import url(./__mini-title/description__mini-title.css);
+@import url(./__black-text/description__black-text.css);
+.description__mini-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  width: 450px;
+}
+
+@media all and (max-width: 590px) {
+  .description__mini-container {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .description__mini-container {
+    width: 200px;
+  }
+}

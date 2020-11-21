@@ -1,0 +1,7 @@
+@import url(./__text-tel/header__text-tel.css);
+@import url(./__text-tel/header__text-tel_fontsize_small.css);
+@import url(./__text-tel/header__text-tel_fontsize_big.css);
+.header__tel {
+  display: flex;
+  flex-direction: column;
+}

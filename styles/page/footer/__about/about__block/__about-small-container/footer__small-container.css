@@ -1,0 +1,14 @@
+@import url(./__small-block/footer__small-block.css);
+.footer__small-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+@media all and (max-width: 1000px) {
+  .footer__small-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

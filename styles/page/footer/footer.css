@@ -1,0 +1,15 @@
+@import url(./__description/footer__description.css);
+@import url(./__about/footer__about.css);
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #fff;
+}
+
+@media all and (max-width: 1005px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}

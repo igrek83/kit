@@ -1,0 +1,18 @@
+@import url(./__mini-block/description__mini-block.css);
+.description__block {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+}
+
+@media all and (max-width: 590px) {
+  .description__block {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 390px) {
+  .description__block {
+    width: 300px;
+  }
+}

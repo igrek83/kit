@@ -1,0 +1,31 @@
+.header__button {
+  width: 215px;
+  height: 35px;
+  outline: none;
+  border: none;
+  background: #185690;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header__button:hover {
+  background: #2683da;
+}
+
+@media all and (max-width: 768px) {
+  .header__button {
+    width: 170px;
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .header__button {
+    width: 215px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+@import url(./__first-menu/header__first-menu.css);
+@import url(./__social/header__social.css);
+@import url(./__button/header__button.css);
+@import url(./__tel/header__tel.css);
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1000px;
+  padding: 10px 0;
+}
+
+@media all and (max-width: 1040px) {
+  .header__container {
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .header__container {
+    flex-direction: column;
+  }
+}

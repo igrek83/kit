@@ -1,0 +1,12 @@
+@import url(./__clock/footer__clock.css);
+@import url(./__name-org/footer__name-org.css);
+.footer__small-block {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  height: 36px;
+  background-color: #fff;
+  margin-top: 27px;
+  padding: 10px;
+}
+

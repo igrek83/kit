@@ -1,0 +1,26 @@
+.header__title {
+  display: inline;
+  letter-spacing: 8px;
+  font-family: 'appetite', Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 900;
+  font-size: 70px;
+  margin-bottom: -10px;
+}
+
+.header__title:first-letter {
+  font-family: 'Helvetica', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 110px;
+  vertical-align: -10px;
+}
+
+@media all and (max-width: 540px) {
+  .header__title {
+    font-size: 46px;
+  }
+
+  .header__title:first-letter {
+    font-size: 70px;
+  }
+}

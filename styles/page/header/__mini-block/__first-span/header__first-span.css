@@ -1,0 +1,14 @@
+.header__first-span {
+  font-family: 'Helvetica', Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 500;
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+
+@media all and (max-width: 540px) {
+  .header__first-span {
+    font-size: 24px;
+  }
+}

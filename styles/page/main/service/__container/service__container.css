@@ -1,0 +1,43 @@
+@import url(./__item/service__item.css);
+@import url(./__item/service__item_theme_a.css);
+@import url(./__item/service__item_theme_b.css);
+@import url(./__item/service__item_theme_c.css);
+@import url(./__item/service__item_theme_d.css);
+@import url(./__item/service__item_theme_e.css);
+@import url(./__item/service__item_theme_f.css);
+@import url(./__item/service__item_theme_g.css);
+@import url(./__item/service__item_theme_h.css);
+@import url(./__item/service__item_theme_j.css);
+.service__container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  width: 1160px;
+  top: -30px;
+}
+
+@media all and (max-width: 1190px) {
+  .service__container {
+    width: 95%;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .service__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 620px) {
+  .service__container {
+    grid-template-columns: repeat(1, 1fr);
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .service__container {
+    width: 300px;
+  }
+}

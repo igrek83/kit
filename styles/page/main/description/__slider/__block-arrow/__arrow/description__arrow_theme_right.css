@@ -1,0 +1,14 @@
+.description__arrow_theme_right {
+  transform: rotate(45deg);
+}
+
+.description__arrow_theme_right::before {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 10px;
+  background-color: #13136d;
+  transform: rotate(90deg);
+  top: 8px;
+  right: -8px;
+}

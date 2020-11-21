@@ -1,0 +1,14 @@
+@import url(./__number-title/description__number-title.css);
+@import url(./__number-name/description__number-name.css);
+@import url(./__number-text/description__number-text.css);
+.description__small-block {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+@media all and (max-width: 430px) {
+  .description__small-block {
+    width: 100%;
+  }
+}

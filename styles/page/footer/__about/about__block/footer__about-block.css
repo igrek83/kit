@@ -1,0 +1,14 @@
+@import url(./__about-container/footer__about-container.css);
+@import url(./__about-small-container/footer__small-container.css);
+@import url(./__logo/footer__logo.css);
+.footer__about-block {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+@media all and (max-width: 600px) {
+  .footer__about-block {
+    width: 300px;
+  }
+}

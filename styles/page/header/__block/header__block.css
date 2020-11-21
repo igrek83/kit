@@ -1,0 +1,8 @@
+@import url(./__menu/header__menu.css);
+.header__block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #e8f0f7;
+}

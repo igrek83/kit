@@ -1,0 +1,17 @@
+@import url(./about__block/footer__about-block.css);
+.footer__about {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  background: #e8f0f7;
+  top: -50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media all and (max-width: 600px) {
+  .footer__about {
+    width: 300px;
+  }
+}

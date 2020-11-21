@@ -1,0 +1,6 @@
+@import url(./__block-arrow/description__block-arrow.css);
+@import url(./__slider-block/description__slider-block.css);
+.description__slider {
+  display: flex;
+  justify-content: center;
+}

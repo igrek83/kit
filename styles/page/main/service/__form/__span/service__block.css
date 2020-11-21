@@ -1,0 +1,16 @@
+@import url(./__span/service__span.css);
+@import url(./__span-bold/service__span-bold.css);
+@import url(./__input/service__input.css);
+@import url(./__button/service__button.css);
+.service__block {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+@media all and (max-width: 1024px) {
+  .service__block {
+    flex-direction: column;
+    align-items: center;
+  }
+}

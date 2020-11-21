@@ -1,0 +1,27 @@
+@import url(./__first-menu-text/header__first-menu-text.css);
+.header__first-menu {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  color: #fff;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+@media all and (max-width: 1000px) {
+  .header__first-menu {
+    flex-direction: column;
+    min-width: 100px;
+    min-height: 80px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .header__first-menu {
+    flex-direction: row;
+    min-width: 300px;
+    min-height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,6 @@
+@import url(./__mini-container/description__mini-container.css);
+.description__mini-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

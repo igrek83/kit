@@ -1,0 +1,10 @@
+@import url(./__li-span/service__li-span.css);
+.service__li {
+  list-style-type: square;
+  margin-top: 5px;
+  color: #185690;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  word-wrap: break-word;
+}

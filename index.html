@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css">
+  <script src="https://api-maps.yandex.ru/2.0-stable/?apikey=d0e6d82b-aa9d-421d-9f07-2c14afa6989e&load=package.standard&lang=ru-RU" type="text/javascript"></script>
+  <title>3 кита</title>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="header__container">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="123" height="38" viewBox="0 0 123 38">
+          <image width="123" height="38" xlink:href="data:img/png;base64,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"/>
+        </svg>
+        <nav>
+          <ul class="header__first-menu">
+            <li class="header__first-menu-text">Главная</li>
+            <li class="header__first-menu-text">Об агенстве</li>
+            <li class="header__first-menu-text">Контакты</li>
+          </ul>
+        </nav>
+        <div class="header__social">
+          <a href="https://vk.com/club122457390" rel="noopener" target="_blank" class="header__social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="15" viewBox="0 0 26 15">
+              <image width="26" height="15" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAPCAYAAAD6Ud/mAAABZUlEQVQ4ja2UPS9EURCG58RnotkVGitC0IhEK1H6GwokWoUIf2CJKNRUtAqNQnQajYZEoqIQFRshNhtC8MjkXNlz79x77SbecuaZeefknDkO2BWRotRVE5Fl59y9RoAFEdkUkULAvInIvnNuLogp2y4i8yLSKXFVNHmN1XZQrMMsGcKrP2G0bgivqiZXTBg+gIGgQQfwbigYDJhSVJemVQWKQC0luZOY9tYQcaMtk/U6BVp+oQ2Thk9gtBEjoCdj2CowFE6r4IvB4ChgHky2bpR1N7OSFLBoMK8yUDBRr3FgOuNuDoxJNFUrcGlwr0cT8boDvk3Un77bmARmk8CXKWtee6Z5itnaPxi96tCmecJId+bClDYvfVxjxiBhNgw8NdC6AlyZaF26Er3GIGE2lfHkQ83oMgKHOcyJPrS/zEZ0l3KalCKuCzjP4cq5RoHhRLSU+p08R8U3QFvA9AFn0Y8SFxz/ANohN9S/jP7SAAAAAElFTkSuQmCC"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/3kitabryansk/" rel="noopener" target="_blank" class="header__social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="19" viewBox="0 0 19 19">
+              <image width="19" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABK0lEQVQ4jbWUoU4DQRCG/yX3AARzBk84gUSDLEHXIE6ieAEeoOFFEGAhrahBIypweEwNCe4E4SOTTi/b3UvTK2XM5Gbm/25m925kBlTAE9DQzxrXVTHoqyckNdNXwciSLiV9SrqV9K7N7UjSSNKBpGdFo133gJjuBhiYzvWNonbPkuICqIEH4MV97fF94Ad4Nd0S0AkDDoFZdjILm3n+HDheC/M3x6AxcOc+BhZevxZWR7FhMvowytUpbC87WenC/SSE8Bgn/HmS1LXWBSvdv2WZ1XiZJrpgc/cnWWY1Pk8TXbCx+0HXmVk8qVsp+L/b1IbfWVTbwoqs1cWtfQCnkq781ko/IxvtPoTwnYmcvNW/Genbf9M6m/rWGNnYW24Ns+lO99my1b9vWkm/XtnSio0K5dMAAAAASUVORK5CYII="/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/3kita.pro/" rel="noopener" target="_blank" class="header__social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="19" viewBox="0 0 9 19">
+              <image width="9" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAATCAYAAABC3CftAAAAgUlEQVQokeWPMQrCQBBF3yYBrSSnEzyJdWrvZRMEezsrr6AQngjZMGxWsPc1s+y83T9DRN2ro/oysCjqwS9E6VJXNAVpApqQfgLO8Zfd6rlucr8p6kJK6ZnPnXoF2lKa7z9MyTh9nccqpsK9AwZgCxyL/jDXW87vy9Wi/Uvc30vAG2I0jhgJVZ7YAAAAAElFTkSuQmCC"/>
+            </svg>
+          </a>
+        </div>
+        <button type="button" class="header__button">ОБРАТНЫЙ ЗВОНОК</button>
+        <div class="header__tel">
+          <span class="header__text-tel header__text-tel_fontsize_small">+7 (4832)</span>
+          <span class="header__text-tel header__text-tel_fontsize_big">66-45-60</span>
+        </div>
+      </div>
+      <div class="header__block">
+        <ul class="header__menu">
+          <li class="header__menu-item">Изготовление рекламы
+            <ul class="header__ul">
+              <li class="header__ul-text">Вывески</li>
+              <li class="header__ul-text">Интерьерная реклама</li>
+              <li class="header__ul-text">Брендирование авто</li>
+              <li class="header__ul-text">Баннеры</li>
+              <li class="header__ul-text">Бегущие строки</li>
+              <li class="header__ul-text">Стелы и пилоны</li>
+              <li class="header__ul-text">Стенды</li>
+              <li class="header__ul-text">Таблички</li>
+              <li class="header__ul-text">Флагштоки и флаги</li>
+              <li class="header__ul-text">Трафареты</li>
+              <li class="header__ul-text">Ремонт вывесок</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Фасадные решения
+            <ul class="header__ul">
+              <li class="header__ul-text">Фасадные решения</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Широкоформатная печать
+            <ul class="header__ul">
+              <li class="header__ul-text">Баннерная ткань</li>
+              <li class="header__ul-text">Баннерная сетка</li>
+              <li class="header__ul-text">Флаговая ткань</li>
+              <li class="header__ul-text">Холст</li>
+              <li class="header__ul-text">Самоклеющаяся пленка</li>
+              <li class="header__ul-text">Обои</li>
+              <li class="header__ul-text">Бумага</li>
+              <li class="header__ul-text">Фотобумага</li>
+              <li class="header__ul-text">Перфорированная пленка</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Полиграфическая продукция
+            <ul class="header__ul">
+              <li class="header__ul-text">Блокноты</li>
+              <li class="header__ul-text">Буклеты</li>
+              <li class="header__ul-text">Визитки</li>
+              <li class="header__ul-text">Календари</li>
+              <li class="header__ul-text">Каталоги</li>
+              <li class="header__ul-text">Конверты</li>
+              <li class="header__ul-text">Листовки</li>
+              <li class="header__ul-text">Пластиковые карты</li>
+              <li class="header__ul-text">Грамоты</li>
+              <li class="header__ul-text">Меню</li>
+              <li class="header__ul-text">Приглашения</li>
+            </ul>
+          </li>   
+          <li class="header__menu-item">Мобильные стенды
+            <ul class="header__ul header__ul_theme_small">
+              <li class="header__ul-text">Выставочные конструкции</li>
+              <li class="header__ul-text">Пресс-волл</li>
+              <li class="header__ul-text">Промостойки</li>
+              <li class="header__ul-text">Ролл-апп</li>
+              <li class="header__ul-text">Тантамарезки</li>
+              <li class="header__ul-text">Штендеры</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Знаки и указатели
+            <ul class="header__ul header__ul_theme_small">
+              <li class="header__ul-text">Дорожные знаки</li>
+              <li class="header__ul-text">Дорожные указатели</li>
+              <li class="header__ul-text">Знаки безопасности</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Сувенирная продукция
+            <ul class="header__ul header__ul_theme_small">
+              <li class="header__ul-text">Ручки</li>
+              <li class="header__ul-text">Пакеты</li>
+              <li class="header__ul-text">Значки</li>
+              <li class="header__ul-text">Изделия из фанеры</li>
+              <li class="header__ul-text">Кружки</li>
+              <li class="header__ul-text">Магниты</li>
+              <li class="header__ul-text">Награды</li>
+              <li class="header__ul-text">Брелоки</li>
+              <li class="header__ul-text">Часы</li>
+              <li class="header__ul-text">Брендирование одежды</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">Печати и штампы
+           <ul class="header__ul header__ul_theme_small">
+              <li class="header__ul-text">Печати</li>
+              <li class="header__ul-text">Штампы</li>
+              <li class="header__ul-text">Факсимиле</li>
+            </ul>
+          </li>
+          <li class="header__menu-item">POS-материалы
+           <ul class="header__ul header__ul_theme_small">
+              <li class="header__ul-text">Бейджи</li>
+              <li class="header__ul-text">Буклетницы</li>
+              <li class="header__ul-text">Визитницы</li>
+              <li class="header__ul-text">Ценикодержатели</li>
+              <li class="header__ul-text">Воблеры</li>
+              <li class="header__ul-text">Меню-холдеры</li>
+              <li class="header__ul-text">Номерки гардеробные</li>
+              <li class="header__ul-text">Информационные стойки</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="header__mini-block">
+        <h1 class="header__title">3КИТА</h1>
+        <span class="header__first-span">рекламное агенство</span>
+        <span class="header__second-span">решаем задачи правильно!</span>
+      </div>
+    </div>
+    <main class="main">
+      <section class="about">
+        <div class="about__container">
+          <span class="about__span">Об агентстве</span>
+          <h2 class="about__title">3 кита</h2>
+          <p class="about__text">
+            Рекламное агенство 3 КИТА осуществляет свою деятельность
+            с 2008 года. Все конструкции собираются по отработанному 
+            циклу на собственном производстве из сертифици- рованных 
+            комплектующих от проверенных поставщиков.
+          </p>
+        </div>
+        <p class="about__text">
+          Наша команда состоит только из организованных опытных специалистов, 
+          способных решать самые сложные задачи, что подтверждено качеством и 
+          количеством произведенных конструкций, а также официальным благодарностями 
+          в адрес нашего коллектива.
+        </p>
+        <div class="about__block">
+          <p class="about__block-text">Мы <span class="about__block-span">ВДОХНОВЛЯЕМСЯ</span>, когда сложно.</p>
+          <p class="about__block-text"><span class="about__block-span">ЗАВОДИМСЯ,</span>, когда видно новое.</p>
+          <p class="about__block-text"><span class="about__block-span">ЛИКУЕМ, </span>,когда нравится то, что мы сделали.</p>
+          <p class="about__block-text">Мы <span class="about__block-span">ЖИВЕМ</span>, рекламой.</p>
+          <p class="about__block-text">Мы <span class="about__block-span">ДЫШИМ</span>, рекламой.</p>
+        </div>
+      </section>
+      <section class="service">
+        <form class="service__form">
+          <div class="service__block">
+            <span class="service__span">Для быстрого поиска введите<span class="service__span-bold"> название услуги:</span></span>
+            <input type="text" minlength="3" maxlength="30" required class="service__input">
+            <button type="submit" class="service__button">ПОИСК</button>
+          </div>
+        </form>
+        <div class="service__container">
+          <div class="service__item service__item_theme_a">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+                <image width="50" height="50" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACOUlEQVRoge2av2sUURSFvzWrgi6m0EhQIaCFKAGjiFpYxN5C8H+wEBsFCxEhYGFhoY1gYaWm0tLGygiCiApaqJ2iBAt/QCxMo3jlxRt3du8dd9bd4k54HzzYOXPu8M7O7GPm7jREhIqsB14Ci8A+4GeFsjXAC2AEmAR+GIcleZ8Do1rz3TgcmsBdYL/d1cFr4BywQ8UWcA/YZpxtUs1JYJcqW4HbPWrmgaPAHt0eA+4Au42zk8cpyHEjWxaARpeaJjRhnG0WjNK7xmNLhZqJZmHjDPDOWP7wzShwAlhn1MFqFo0Cp/Uy80iX3sUlXdpMpd9LyWiJyM2C95KINEq8y2O1iFwr1KTPI46vu+Zqoea6ap43jellY9Ugx8Sy3fEVxyFTITLp+HrVHHR8JkjTOV0e9/UUbtB974G3jq/IU+A8sFm1j8Ar4+rkGXAB2KTqJ9V60pD2+rtXl8o6MQ08QJdfjyPAFUePwGVgtnseZUFGC2t5NMa8+awySk3JQaKRg0QjB4lGDhKNHCQaOUg0cpBorJggZQ9WX4CHRo3BvDeLsiCP9Hm4NuTfSDSKl9ZZ4HPN5v+3IZ76Wr+cBnXdWOo0ngIODGniU9pG+qoLhsdhYKP+1zKshuATr586yJjRVuzcP44xp54ZZ99/j7xqRSMHiUYOEo0cJBo5SDRykGis+OZDP6wFduqXMq51Lb2l92ipNq6e9Dz0puIrUOUM4Rb6lnnpon9uOMftawzj0kqvZgzKh4EOAPwGfXHNqiMESbwAAAAASUVORK5CYII="/>
+              </svg>
+              <h3 class="service__mini-title">Изготовление рекламы</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_b">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+           <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="59" viewBox="0 0 59 59">
+                <image width="59" height="59" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <h3 class="service__mini-title">Фасадные решения</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_c">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61" height="51" viewBox="0 0 61 51">
+                <image width="61" height="51" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAzCAYAAAAkaACZAAADHElEQVRoge2aX4hMURzHP9YKta0XikgWJRu1ShkPUpS8IX/iwZM8KI9IrdjyoPVv86L2XWZZa+VfePEvWaGwaEl4WGx5kP9Zy+hX507HOTN779w7s/fM3PnUrTvn7+8753d/59x7zqhMJkNA6oE2YBMwPmilEeArkAZ2Al+CdFeI6E5gnZXqDieAzcUULaP8CagBlgK3rBLxsQK4CvwF6oCfxRI9A3jj1bFy48cT0QC89bOm1rhfpUay3ihXp92fs1pxh8PAN8Ma8VDxzAvAENpINwJngLkOC4rKMxWT+kT0JOAJMLm8NQXiA9AkgWlvQgQLU4BmGen36kdS6BfRgSfqSqEmaYJJquhaK6VwmoHjI2jzdmC/lVoImWi0SkiI4ToYxeoogewmsBz4Y+WUntHAdWBJmJ6iiF4M9ACrgSPKkFIjLxU7gLNACrgbpr+wz/RrJViYBcy0SpSOBtVyj7Kj4L5F9G9gjJUzPPe1XBnljhBthEFeGPq1eg9CiB4U0beBZVbW8Hw0ct8NW7p0mHYE4Z7M00dDVIwjeOViKEeaH20i+hLQ6lOwUjgEdHsrst3AWuBlhYp9qN6ld2EsQ2UaOGAU3gos0K52qzk3aNds3GdYtBFYCHR5CX5T1ivgkfZ7wCrhBgOanU2GRb9MC6tvWUmhKjopVEUnharopFAVnRSK8TXUFWT5uQaY7mePn2jZtn2stjtdRraWbwATgtjo594tQG+O/WrXmBhUcBDRwlRgjpXqFvKB8EUxRX8Hnlqp7tGZx6IfYURfDHJ4xQFO5zFh0EwIEr1z/YMp9bzHTUrrv1e5uO+j6CdaXPuylQqL1OUaMkB7ooruNlxbdhWOWaXix9ttSYcRPdv4bT4nV9TlKs9V0J2n2Wd9ozcDmX4MUs5ZXnNYYD7MgfL2vrLooucbQeB8ri+JZYAZeGVpmlf0BiMv3xTgOn3GumKleWpZF71eu/9cpq7t0aHdj1OHB7J4ohsN1+4qU9f2SGuHZIX/tpG96D3NqHTKaqa8kLX4NmALcEfFpyzegdixak4W/z+pDotX5qE64B8dhnd2bPEdOQAAAABJRU5ErkJggg=="/>
+              </svg>
+              <h3 class="service__mini-title">Широкоформатная печать</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_d">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="59" viewBox="0 0 49 59">
+                <image width="49" height="59" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <h3 class="service__mini-title">Полиграфическая продукция</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_e">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="57" height="50" viewBox="0 0 57 50">
+                <image width="57" height="50" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAyCAYAAADm33NGAAABuElEQVRoge2ZMUsDMRiG31PpUhFnEQfp4CI4OLn4Bxw6OrqIq/9A8Gd06+ToJEiHw1GKSCenukhxtSJSBPWVlLT9erme14I2yeWBQO67pH0fSJpyF5GE4AbAPtznFcDqwGLBA6FfWTIqI94BfBpVe4kArKSly5I80MvXFdTyfEnLWojlWvg9mWQLwKFRnR/XAG7/QvLMqM6Pbl7JsCd9IUj6QpD0hSDpC0HSF4KkLwRJXwiSvlBIycUJfReQLlGW5I7obzsmuS76Y89fw570hSDpC9M8d30CUDeq8+Mh7zdPI3kP4MioOkDYk76QfJ3+BmBZ9x8BdBzyLAPYFdfDfz1Zkq4zlCzkEdLRr+gUxwDujBn2sgbgKi1dUvJD9NsAWsYMe+lOShaOkBnG/Te5cuUZVAXQMKp20ND5MsmS3AQQA7gEUDHu2kFF54vFD6aJOidFa3HEt+jXEuNsaTWR8YvjDDPKsCWSz4mBTZJ7lgoOmsrXpEkpKVkl2RbDuiRPSUYpH2pjUzlPdO4Bbe3Vl4zFjR7Jc5JlR+SSrazz94RTDHFxQXIjZaKLTXkonz6q4MK+m32/ks0fbhdWQZUWBLMAAAAASUVORK5CYII="/>
+              </svg>
+              <h3 class="service__mini-title">Мобильные стенды</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_f">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39" height="61" viewBox="0 0 39 61">
+                <image width="39" height="61" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAA9CAYAAAAu7nDIAAADGElEQVRoge1YXYhNURT+ZubOdI0xYQY1D+MnUcKkyYsHJA9KlFA8eFQU4oHkRXiQPJAHeRoSigcGLzzoKj8Pk/IyhaT8xoRM45phmvFp31lH6569h7n7nnOucr5a3X32Wmet7+6ftfY+IBmFTCF5hyP4RHJ9FH6tDk+5ymIMkpxZrt9qRIPlIS+1AJaU6zlj9RTrtgBoszQ2JkrPAIA6ADUAtgJYbFmOHV1Vhbm10QTgCoAVliY5fHeN3EIA1wHMkGfT7rWs4oEZ9c3i+Vp4EW4gmZel3UdyrWuhxig7JLbZULOCQGZ6j6j99pzkvISJTSDZI/FPBKmkkeQNRew2yUmOl+OWoxK/l2RTQO6+InacZE0FiDWQHBAOB3Sea5EFOATgCYDhCuzMjORGg8+/eyWTd6vRO0Uy4/h3cUuHxH9DcpwuX2YxdiqCuWDeE5QWlSn2h2ur2bGHFcGXJNsSJhjEN5ui2VUhNgI4B6BeytFZAB+tVRINfkiMAI0ADkn7pIscpJ6ayjDd0iSHvtHIGTQDOAhgPoAqS1uMZfLUDyALFLLACwBvLcuxwWSMe38iVwpcTvaYqbF6S0BU57lYkJLzRfg8ZzZBQ0S+J6sz4d/wwRwuLRuVADtYOXyTs+SoF5ysxTw5mIR/HkC7jqhTiVE8kvYuADcTomam/xKAuQDeyaXofUETGsqg+D8mWe2ofXHJHJJfJHYXyWy48BtZpFbdpoSL/kqSwxL7ojmIuIwui8GzCpyKd6rB2ecyWK0M2h36uCUnsftdSXiV/PbIsT1JrAGwVOJdCLNulTujwW7Hv4pTFpD8KrEfkqwLBzsjytfBjklIpsrJ2+AVyWnh3Tqb5JAYbEuQWL26nub11UAn4dMAtks7n+AVsV5dC9cB6AwUuvC3qnZUxb8U7NXEECpfDXJ3qPVwnLN6gGMAbknb+BxvWYyAcqTvDiv0yJmpfGC96o+nAO6W48CV5/4ZpOR8kZLzRUrOFyk5X6TkfJGS80VKzhcpOV+k5HyRkvPFf0FuMCI/RYiKnLlU/1TP5lNG8H3ZDwB+AdDth/tG8xm5AAAAAElFTkSuQmCC"/>
+              </svg>
+              <h3 class="service__mini-title">Знаки и указатели</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_g">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66" height="50" viewBox="0 0 66 50">
+                <image width="66" height="50" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <h3 class="service__mini-title">Сувенирная продукция</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_h">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="47" viewBox="0 0 46 47">
+                <image width="46" height="47" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAvCAYAAACc5fiSAAAEf0lEQVRogdWaaYhWVRjHf+4WmlZO5kIDzZRWjjKVSLQgktiCJZgRBn4oKOyLX/pQXyraIIYgRNMgw6ygoi8GSQtE0UJOC6Ez2ZhZkuRSSlbq1Nj84/g+d97rPee9y9x3HOcPD/c9z3mW/z337DPDJFESI4ElwFLgGqDRwp0AvgG2AK8Au8smOgWOeAm5WdIuZeOEpA2SJpXM1yeeIqe4L/VMDsJJ7JV01WASX+NRyo8jkmYFYhaS/vTx+4H1nrYYdgFzgGP9DTDc06RjEtCWapEPzcDDZQIUbfHHgEc9bf/wJ3AR0A2stAh/2OyzFfgnNWrBvrWzRN8O4R6L+0NCf0zSq5LmBjiclCJd5ULgEk9bDjea95ZElLOAu4F24EXg3GSWIsSbPU15NFmEzpRI9wJfJvMXIX6+pymPyRbhYEYk94If2ZgoTHyYp6kfxueINA14M+JchPhRT1MehyzCO8ClwGLgJaCnRuR5fTNQaMTWkJnenFAeb9TINUNSZ43o+yWNKtLiu8usdDWwPaymC5hfY0fpxsWSIsT/BT7xtOXwccB7HLAI+D22MCVxS+gzpcl93ofrP36VNDyRq0HSNot4Q8qi11V0r/KaLdX1wDpgITDDYk0EPgRabMlvN/0XgVzT01q3lrR5718cbkm/2LzcNne+pK1Wds8JsdzPhaLXIpcmUyQd9yIVw1qLvzbhtS1B2snLgchH0wimyQteqPzoldSk6klqnXlutz4ez+vqfwpE/j6NXJq0eKHy4/UAuUWSzgnku61G1I1lTvmf26m+2wZTGhqAy63+WvPNwgXAt8CUgN3ytFbNkgfs7Xskjc+wfdxsO608W9LKgF0kcyTt8Nq5ggOSRoec8kpjLNjiDJ92s3vSyqut/KmkFdb1WiXdZduAXo9uFatU4pQfSYeFawvURTLGvorDQkkjJO3z6ORDu/kXPiwn8ZmVW7yaKlrstsvB7U1m22mqKPYDdwL/0Y9TfhIdVr7Cq6niMvv1tyWf51lk42dggT2pB/E99pwOjPJqq3UOv9hzmmeRjreAucCOuFVZ4vEj12SvtoLGhO2zwCOxlw7B7UQ3A9cDy2yneApGBpyK4FDM1l0W7Q34RseyiLi7O3nCZBZwJTAVGGsEu2xdSN3MlSV+OPZ7oldbwTh7xl8yQkdsnBRC1sp53slNe+Wer8GrrRygV9jv94F9ngXcZN3IEfzaq62svHtsS5u1AlcRmHedjJb0dB12gUXxlaSrA3w8CbX4GLtZWmDlXmAncMB76zCc/V/AhESt04cmgxF2QxYN7h4bkJs9y4wWXx9rpU2SpgZs6i3uCLdU0kHLezzrDj2paI2Rfj7kMMDSLOk3y/9BWq6kYoM5uT95jA05nAZZHmu8plr5ounQ7R1uB+6wspsdHvL61elBfAV+CtgEvGtjpA9ucF4HvAecPUhE88DxuzXaYGFL/uoznDR2QbQsrnDEWz2zMxMzk8SHJIY08YG49x4IdCeJbxwCpN0/NLwdVzjiDwJrgCODxysVP9qM8l2fFfA/ExTnn70OcT8AAAAASUVORK5CYII="/>
+              </svg>
+              <h3 class="service__mini-title">Печати и штампы</h3>
+            </div>
+          </div>
+          <div class="service__item service__item_theme_j">
+            <div class="service__description">
+              <div class="service__description-block">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="44" viewBox="0 0 52 44">
+                  <image width="52" height="44" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAsCAYAAAAq/ZsdAAACnklEQVRoge2ZPWgUQRTHfzkCsRBUsIiIQRELgwiSQi0EkVTmFBsFERsJmNpGCzGCImqjbfCrUtBoIygoWIgIphASBD9AQYwaCyMW0cZg5OEbeOzs7e1ebm9nj/vBsLvz5vbN//bN25nZrt4Dl0nBceAEsDxN4xyYBS5qSaQ7yahUgfPAD+CpZ20Nm4ELwBTwKMljGkG79HgYeOhZW8Me4D4wmFVQH7AWqETqhA3ATu8OrWG9elkX6cM88BH47CrcGOoHrgLbC+rwYnkGHAXedKtqGRsrSypG2AE8BwYktM6VXIxjBXC2olmsXRgSQUvbSNCyildVctK8h+L4C5wCvsTYmsEa4HTk9ZGKRgUNAze82uYif9a1rHdsJOSutECMcF19ZSKroD/AqJ6/AhZyKlPqY1R9piZryE0AM+Z81mvxnyVaGkHG56T+Tny90BdnKkTQN6A3Zfu35nzYs+bDuwyCvkvI3faqa/OrpiU/svi8K4LOAO89U/n4AJys6DjYCozpAC8bc5p1t4kWl+VkNToCfDJihnQmLuVgACJdf6LjSSalR2T8UCfLfdXFE7roKxrbH8u8vWi7uVxHUOh0BIVOR1DodJbgBbNRZws1SXpC/XXsrWYv8Bp4kOQ3qcM3aWBNnyOb0tw6SRA6Cw+Fx80Q9MSrKY6XwHQ97/WSwp3IdU8BX/F69ChrtXHgmNfCkCRoRnf0LSNaimJRgu7pDozws8DPkY453d6a1p3VWKwg2bRfba5tuE0W+PUuin1K3p6dTQpVIzAu3EJh3PRD+ruqlqD95tyGW2hMmGzXpS9cT5CE225TH81uIbEQeUr74gRVzdZtyOHmsIIGrMEJ2mLqQg43h+x339LMd8kaXBIQEbK39TvaIGAOeX0D/gEdK4e/F4Ob+gAAAABJRU5ErkJggg=="/>
+                </svg>
+                <h4 class="service__item-title">Изготовление рекламы</h4>
+              </div>
+              <div class="service__description-block">
+                <ul class="service__ul">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Баннерная сетка</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Флаговая ткань</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Холст</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Самоклеющаяся пленка</a>
+                  </li>
+                </ul>
+                 <ul class="service__ul service__ul_theme_bottom">
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Обои</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Бумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Фотобумага</a>
+                  </li>
+                  <li class="service__li">
+                    <a href="#" rel="noopener" target="_blank" class="service__li-span">Перфорированная пленка</a>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+            <div class="service__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="77" viewBox="0 0 50 77">
+                <image width="50" height="77" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAABNCAYAAADkSzelAAADtUlEQVRoge2bb2hPURjHv/vfWBgyItrGkHmntlJK+TNFDaWU5BXeSEwib+alF6RWXuClyQshpCg08YIof4oVthkhL5jNmmEenXouz865+/3md5+z3zX3U0/37jznPud87zn3/M459y6HiKBEIYAWAE0ATmsFHS75irG2AahlywHQ7OTwiFaLFABoBzAdwDsAlQD6nFweyVUKvY5FGA6NtAgotsgVAKsA9AKYBqDHyeEZjRYZB2A5n5/PhggoCVkqBo0LjtcfJdpCasX5dcfrh2JuefNcNGoJqebjKwBdjtcPE0TUHi0hFXx86nj8USYif9YSEtydj47HHxUicoeWkLF87HY8/pgvIr/UEtLPxzGOxx+LOPInnlGoCAm6VJnj8UMegCUc+W5QgoaQ53yc63j8UANgIke+qinkMR/LxXzLJ5tF7IuaQm6I8zrHq0spgE0c8RaANk0hd8QP4RbHq0uDGCWPDopsZr8K1kR/WKAU07Y5RPSVS3lCRLnSr7UeOSnOdzje6BTyirNIlPHTR4sYa+G71UtEpSH+TM3c+WbR4sfC4jgJEWy9KKxBKWahJeI+ERWH5FMVkk9EnVxgm92HM7CZRHRbiHhBRFOHiuMkRLR9ouA1EVphNxF1i1iPiGhGSF5vQiaJkeVSiD+VTSaiXaJVA84QUUmK67wIMXaKK/AjVVdgM92vjojOEdE3S8BbItoYck2ohSZGtGWiMntTxFpJRM/I5QN30bSt4LtFckX3eBDizyOiI1b1+7krmhYoCrkmK0KMHRaVrBTpOdZw+oWIDvDzERYn60JqRWX3iPRGkW66VVXItbESYu78e67wTSFugNM60g2nf2tacy0b4m1Uw2KesTbxbHsAwAYAb5yrIuBLCMQ6pYAnecE6+wSAe07uiGi+6LEpFwufVgDzAHwHMBtAp5M7Ij5bpF1saFfx8awPEfAsZCGA11Y5ZtdjvJNTAZ9dq2uISq/1sWvvs0VGlERI3EiExA0zaj30VKdq3nC26QhezmhihHgbf0eSUdO17G9RLgdvgBTYLnYGfZRhPhNZ/fsva8lZr7hG6HJW47pl1Mugo7ZraTLBY2yH5AcxbiRC4sZ/M2qtAHDcSc0O1wBsHarkdELMZxmznNTsMCVVqckzEjcSIXEj3cNutjoPOqnZoTVVqcMR0uikxpBkGs/UWd/9RiXj1tcQstNJzZyMhSTDb9yI2rX2x2VUiyqkLxv/9BJG8ozEjURI3LAf9pp/qO6D6pq8Vogbo0MIgF8khGV1JJOAdQAAAABJRU5ErkJggg=="/>
+              </svg>
+              <h3 class="service__mini-title">POS</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="description">
+        <img src="./images/m.jpg" alt="m" class="description__big-image">
+        <div class="description__container">
+          <div class="description__big-block">
+            <svg class="description__logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="186" height="188" viewBox="0 0 186 188">
+              <image width="186" height="188" xlink:href="data:img/png;base64,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"/>
+            </svg>
+            <span class="description__span">Наши</span>
+            <span class="description__title">ПРЕИ</span>
+            <span class="description__title">МУЩЕ</span>
+            <span class="description__title">СТВА</span>
+            <p class="description__text">
+              Мы всегда четко планируем все этапы производства,
+              что позволяет выполнять работы в намеченный срок.
+            </p>
+            <p class="description__text">
+              Накопленный опыт позволяет нам быть лидерами и одними 
+              из лучших в сфере.
+            </p>
+          </div>
+          <div class="description__block">
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="57" viewBox="0 0 58 57">
+                <image width="58" height="57" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">КАЧЕСТВО</h3>
+                <p class="description__black-text">Многолетний опыт работы с крупными и сложными
+                  заказами позволяет нам с уверенностью гарантировать высочайшее качество 
+                  предоставляемых нам услуг.
+                </p>
+              </div>
+            </div>
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="46" viewBox="0 0 46 48">
+                <image width="48" height="46" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAwCAYAAABuZUjcAAAIPElEQVRogbWZDYxUVxXHfzP7wUehVGhBoKZfERNXq9ZEnxW0HylSK9iWwtTE1g90MM2jWo1ITRNrRQURWsxAy0s/NErt2CKUVkpKS/kQndKm28KyZSllQZeuC7vssnzszi47z9ydM+XtvffNvNm2/+RlMvfce97/3nfOueeeG/N9n0QiwXvA+cBUwAE+DVwETAAqRWUP0AYcAN4EdgIvyv9+pNPpst9eabREwzBgNvBdYAoQKzKqGhgvzxeB70n7XuCvwJ+AQ8aoEih3xYcC84AfAx82pINDH/AUsNBxvbpSGu6aMqr/N25IwnE9sAf43ftIWqECUCv3eiaVnG1IQxDFVIYAS2SlS0Gt3n+BRqBT9Y3F48qsxvu53CXAiCLjlaGvMVpDUIq4crz1wBcMyVnUA38Th3sZ6C1IHNdT+nOZVDInK1sDfBWYBVwR0PEIMNdxvT7xF+Xc54kDdxlvLEH8QmAz8FFDksezwO+BrYYkTzqWSSXPBJoUqV3kn0USgeYAR8S+faAqEKFOAg3Av4CjmVRyjON6raWIjwO2AJcZknwE+D6wyZAMJO0bgoF4vWB+juupn3OAnwA/ANTYNwDliefVr1um5CsyqeTdTEn/gRDnVDb9dAjpfwCfCSOtCKvfCKR1KLP4jRAfL6byJWDG/3a9dFvn4YaHgeHA8kQicR8h4XAVkDRU5+PtHPnkBiKusgHH9SYCvxa7Hx6UtzZkcvtfeCyOb6hdpZvKDSGklfN9Rz6hAcf14uKA5RBWX/tyZd9i11VBeUvdVhq3Pm4jrXAwSFxtLimjC7wKfKsI6YpMKmn9CmEQ0tcI6c/qvtZcu4lDO54MGc0d6XT6weCAO4GLtU6ngFuBbmN4nkB1MPxFJK3C4gyx6Um6nzW98qzf9PJ6WwqhvuicdDr9RwIzHSaOoeOXwNtGa56A+kLZqHYtjqsmejtwN3DJwB4+h3as8Ztrn7eRVotzu+N6TxQaCsS/AYzVOr+lvNhQkSehJprl7Gf3I0xAbWZ3SijV3uXTuGW131K3zUZaZZezHNdbH2wsEP+20R0WyyCd9BBpHyphS8Xa447rHc6kksYuJyt9mZjGdBl3lrKf4+1Nj/qt+3baSCt9X3Ncb7MuiCcSiQuAyVq72qFWW0hUBUirSPArYJk8tzquN8p4dd5v1A57o0G67wxvPbcqjLTKdabaSCOOcZ0ln16rO6SQLuQSk8ROb5F8/AaJEDPF9gtjJkr79Xq4y53poWHDSo4dqLWRbhXS/zQkgkrJC3Q8o5FWE1Sxunf4mInjambO/1xF9bArAqZWSIzUZPY7rrdddsN7ZaWrg/r6erpp2LCCzqYG48UqLwGudVxvtyEJIC7Jjg59pjGJ4xecbnvnxbonF83z+87YVkrZ8j3AJ4D5kmcP2A37err8+nVLcyGkDwNXliKNEL9Ia2sC2vWO9WuXjs1ni35NV3tzTcOGlTllo5YJXi0bmTqijQwKe7tO9Ox6YuHpU0cO2XIkFXYnO66335BYoBRM1Jr/o3fLpJIjOg/v2ygr2Y+OQ3VV+zauwkK+Upx9TLCx52R73+70wp5s59FzTBr9Of1VjusdNCQhiEuCH0SHpWsn+Nv1xvbGNwghHw86fPfxI/6eNYtzPSfbbSeg3UK6yZAUge2T2TYS1XYH8FAZ5PvR1d7Mnr8v8bMnjg2IKgJVqpjiuN5RQ1ICcUseMjJkSNnkT7c1sWfNEnpPHbct0EsSio8bkghQ9tiiOehHigwrkFfb/Q9t5CdNm0usopKTLY28+fT9/aHPAuUvM9XcTJGJzIq5C/D9aUqQyOevHYr4QY34xRLCwpQq8j+SL/UzG/lxn7yKfc89RK43awyW09VsWzoRCh9XCyL1ingt8OVAo3KqK4EXwvQIFsivQV49IXhcssPI+XsmlZxgiXx7le392+id36KjYIEkY1GgTsRlkRbMMFrg1bisrK4sUaQCoCMK+eVyei+XNHKQ0bE5nk6nj4mHBzFRUtCoKEb+t+ITtjBbFJlU8lOaGSs0A68UwtRjFgX3hsT5MNjIq6Tr5yH9o+AXlj6r0+l0rkDsKan5BXG5nOzLQZD8PKlYDQqZVFLlPDdpY9VXe5DAivZYVgs5IOhJWCkskFqjrWIQCSo3Ah629FWrfQDNFDy5MQjiXKmiDjdUFEemqLQIMqmkCsePApdqvbJB0wkS75VdUcfn5RinJ2MfFBZLVUvHIsf13r1+0UPeFqmF/1Rrv1HKzbOK7KjvCZlUMi5n07ssel6TMt27sEWNeywnIKSuva1I2XnQyKSSo4F1IaRVuL7Fcb0BhScbceWoXwf2GZJ8uaxWql6DvfjScbPk5LZ9Q5UnbnJcr1EX2Igjs7zW4qxIHXu53Ad9Uz8IR0QsFo9PjcXi2+T6ZIJlmCJ9s+N62wxJiVVrkl1rrVzz6VAlij8DS5Xzxiuqnrn0mtv2nv8x51yJQjl5FGLZzrZh77y2sabzcMPkbGfbdbm+3gsNjWehzrzTHdfbYUgKCi31cR3V4jSlL69iMX/oqLF9Q0aOJl5ZTSxe4atTffZEWyzb2Vrp53K2yoCOnVJyM86+BK4Li614AT1i0+rOZ2XITUUevh/r7mip7O5oMUQR0CVpxjLH9eznwADKcbDngY9LrJ8vVx7vB7KSK93nuF5zVH3lRga1+g/Iys+WYunVRZy8GOpkY3tkMIflwYY0NYG/yDM6Xln1leoRH5peUTV0mrLnM92nhgeiTVailCr4qPv7HbIfHDC0loF+5yyF+7dHOohXynm1V4pKZeffUVCOc0aFcihVPivUGT84AP8HtjrVloWR9XwAAAAASUVORK5CYII="/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">ГАРАНТИИ</h3>
+                <p class="description__black-text">Мы гарантируем выполнение заказа точно в срок 
+                  и с соблюдением всех условий, поставленных заказчиком. Именно поэтому нас выбирают 
+                  крупнейшие бренды и компании.              
+                </p>
+              </div>
+            </div>
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="48" viewBox="0 0 50 48">
+                <image width="50" height="48" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">СОБСТВЕННОЕ ПРОИЗВОДСТВО</h3>
+                <p class="description__black-text">Мы осуществляем весь цикл создания вывески. 
+                  От разработки макетов до сборки и монтажа.
+                </p>
+              </div>
+            </div>
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="33" viewBox="0 0 55 33">
+                <image width="55" height="33" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">СОБСТВЕННЫЙ АВТОПАРК</h3>
+                <p class="description__black-text">Наличие необходимой для монтажа техники позволяет 
+                  нам оперативно осуществлять услуги установки вывесок.                                 
+                </p>
+              </div>
+            </div>
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="45" viewBox="0 0 46 45">
+                <image width="46" height="45" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">КОНЦЕПЦИЯ "ОДНО ОКНО"</h3>
+                <p class="description__black-text">Вы получаете весь комплекс рекламных услуг в одном месте. 
+                  От визитки до крышной установки.            
+                </p>
+              </div>
+            </div>
+            <div class="description__mini-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="51" viewBox="0 0 60 51">
+                <image width="60" height="51" xlink:href="data:img/png;base64,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"/>
+              </svg>
+              <div class="description__mini-container">
+                <h3 class="description__mini-title">РЕШЕНИЯ ПОД ЛЮБОЙ БЮДЖЕТ</h3>
+                <p class="description__black-text">В зависимости от бюджета подберем оптимальное 
+                  решение вашей задачи.            
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description__number-block">
+          <span class="description__name-span">Процесс</span>
+          <span class="description__name">ЗАКАЗА</span>
+          <div class="description__number-container">
+            <div class="description__small-block">
+              <span class="description__number-title">01</span>
+              <h4 class="description__number-name">Выезд специалиста</h4>
+              <p class="description__number-text">Выезжаем к Вам на объект. Делаем 
+                замеры и фотографии фасада.
+              </p>
+            </div>
+            <div class="description__small-block">
+              <span class="description__number-title">02</span>
+              <h4 class="description__number-name">Дизайн-макет</h4>
+              <p class="description__number-text">Разработка и согласование дизайн-макета для Вашей
+                рекламы. Фото-привязка макета к фасаду.
+              </p>
+            </div>
+            <div class="description__small-block">
+              <span class="description__number-title">03</span>
+              <h4 class="description__number-name">Стоимость и сроки</h4>
+              <p class="description__number-text">Корректируем стоимость и сроки изготовления вывески. 
+                Вы вносите предоплату.
+              </p>
+            </div>
+            <div class="description__small-block">
+              <span class="description__number-title">04</span>
+              <h4 class="description__number-name">Изготовление</h4>
+              <p class="description__number-text">Изготовление Вашей рекламы в срок. 
+                Финальный фотоотчет.
+              </p>
+            </div>
+            <div class="description__small-block">
+              <span class="description__number-title">05</span>
+              <h4 class="description__number-name">Монтаж рекламы</h4>
+              <p class="description__number-text">Производим монтаж и подключение вывески. 
+                Предоставляем закрывающие документы.
+              </p>
+            </div>
+            <div class="description__small-block">
+              <span class="description__number-title">06</span>
+              <h4 class="description__number-name">Гарантия</h4>
+              <p class="description__number-text">Оказываем гарантийное и постгарантийное обслуживание 
+                вашей рекламы.
+              </p>
+            </div>
+          </div>
+        </div>
+        <span class="description__name-span">Нам</span>
+        <span class="description__name">ДОВЕРЯЮТ</span>
+        <div class="description__slider">
+          <div class="description__block-arrow">
+            <button class="description__arrow description__arrow_theme_left"></button>
+          </div>
+          <div class="description__slider-block">
+            <input type="radio" name="slider" id="slider-a" class="description__input" checked>
+            <input type="radio" name="slider" id="slider-b" class="description__input">
+            <input type="radio" name="slider" id="slider-c" class="description__input">
+            <input type="radio" name="slider" id="slider-d" class="description__input">
+            <input type="radio" name="slider" id="slider-e" class="description__input">
+            <input type="radio" name="slider" id="slider-g" class="description__input">
+            <input type="radio" name="slider" id="slider-h" class="description__input">
+            <input type="radio" name="slider" id="slider-j" class="description__input">
+            <div class="description__slider-container">
+              <div class="description__log">
+               <img src="./images/baon.png" alt="baon" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/kia.png" alt="kia" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/prav.png" alt="prav" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/fix.png" alt="fix" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/rosnano.png" alt="rosnano" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/magnit.png" alt="magnit" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/beeline.png" alt="beeline" class="description__img">
+              </div>
+              <div class="description__log">
+               <img src="./images/binvest.png" alt="binvest" class="description__img">
+              </div>
+            </div>
+          </div>
+           <div class="description__block-arrow">
+            <button class="description__arrow description__arrow_theme_right"></button>
+          </div>
+        </div>
+      </section>
+      <section id="map" class="map">
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__about">
+        <div class="footer__about-block">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="210" height="60" viewBox="0 0 210 60" class="footer__logo">
+          <image width="210" height="60" xlink:href="data:img/png;base64,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"/>
+          </svg>
+          <div class="footer__small-container">
+            <div class="footer__about-container">
+              <span class="footer__text">тел.: +7 (4832) 66-45-60</span>
+              <span class="footer__text">Анатолий: +7 (910)293-05-12</span>
+              <span class="footer__text">Дмитрий: +7 (915)530-43-61</span>
+              <span class="footer__text">E-mail: solo0512@ya.ru</span>
+              <span class="footer__text">E-mail: br3kita@ya.ru</span>
+            </div>
+            <div class="footer__about-container">
+              <div class="header__social">
+                <a href="https://vk.com/club122457390" rel="noopener" target="_blank" class="header__social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="15" viewBox="0 0 26 15">
+                    <image width="26" height="15" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAPCAYAAAD6Ud/mAAABnUlEQVQ4jZXUT4hOURjH8Y/XkMmfaJDC2LCgSLGwsFBWxE5TFooRWVlgIymJSDNFsaLYsrBRZGWlZIGVFVlQNGaQIZF/PTm3OXPPva/mu3rO73nO+d17znPOtCUDF69jgQm+4BjeJeUALmB+VvMNN7HPZGZiELNq+kgPNmNlLRFmh1J8DXMxnOV7sRcn8SbTT+G4kvEOrhbyv6/qT/EfXMGPooqeLF6adqKJs5XR11pyBk5k4+9427BAztE0r85DDIXRR1wu0uzHqkJtZiEONmTGsQe/OkkYwuda0XRcysa9xTITHMHsQuUwXkVQGY2mg62zDWdSxy0usszB1pazuY0b1SDau4rjYJ9gbTGFMfQVKq+xLNap6SNYjQ+V0MmSP9M+/y6WazYJljeYBPdyk7pR8Ajni2lTZwCbuhkFp/GsUKdGNM59rOlmFHdmV2r7//Eez1tq5uEuFrUZBS+xs6Hl60Rbr8OdlvwK3IpGazMK4kZvSAfbxoO4jNiNpy1FW+IN7GYUvMB2rMe5ZP4p++to4yCesB14nIwnw8a/HZFMB5+FHbsAAAAASUVORK5CYII="/>
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/3kitabryansk/" rel="noopener" target="_blank" class="header__social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="19" viewBox="0 0 19 19">
+                    <image width="19" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABeElEQVQ4jaXUPUtcURAG4CdywSZY2GghaQMphDSCTZpgsSKWm8I/kCakU8gPEO20S0oLi91SxBQ2dmkCgsVCIGWKbJMilYJFGJ0rd8/d1Zi8zTnMxzsz58zMk/nuHrzALlYw7e9xhVNsYVAl0RfMPIKkRgRewyssV5lREP3CB3xruUzGc2xjNniizMuM8BafJrq18Q7f8Qwfo+Sq8UZlRqHbwCrmMMQJDvEU+/iKzbrkqhXvFgs4wstC3sV7rOM1fmagu+glqoLoMy6wiE7KQ7+E64fINhpEb9AvMuulPuwOmo5TLarbN6oz6he6fsqbdveS1WlftDSj8rlSMY5smOdiSzMqH5aKcWQneXbyjZroprxpdy9Z9NF53nvptJNnL+XnaTeCcb95nX1Ut0enkU1NtJ52D5IFfmQfTZqAFlFNdpUjFUN7VmR4UPbSGIRf4GY2Yx/FGonpD/zL1gicxtb4n31W43fss/jNQVxwnCU/BmEffssY/AFeGk7OduODjAAAAABJRU5ErkJggg=="/>
+                  </svg>
+                </a>
+                <a href="https://www.facebook.com/3kita.pro/" rel="noopener" target="_blank" class="header__social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="9" height="19" viewBox="0 0 9 19">
+                    <image width="9" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAATCAYAAABC3CftAAAAi0lEQVQokeWQIQ7CQBBF39IlQTWV3KKcZhPuQVNVsbqGU/Qo1fV1KBwaQUI27SST2RV4vpnJ/y9/suvO4Y5SADqgBY5iewVcgYmCDsq65XHedDHZCMwaqk1r0gC8UYEFEECaFqDKkM1P+vj9uSWJ/yydsXqkpgicgN6EcZ+r/HgDvAzkZPnl3N9DwBdlmRDFHG+PbgAAAABJRU5ErkJggg=="/>
+                  </svg>
+                </a>
+              </div>
+              <span class="footer__text">Анатолий: +7 (910)293-05-12</span>
+              <span class="footer__text">Дмитрий: +7 (915)530-43-61</span>
+              <span class="footer__text">E-mail: solo0512@ya.ru</span>
+              <span class="footer__text">E-mail: br3kita@ya.ru</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__description">
+        <div class="footer__about-block">
+          <div class="footer__small-container">
+            <div class="footer__about-container">
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Световые вывески</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Объемные буквы</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Бегущие строки</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Несветовые вывески</a>
+            </div>
+            <div class="footer__about-container">
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Световые вывески</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Объемные буквы</a>
+              <a href="#" rel="noopener" target="_blank"  class="footer__description-text">Бегущие строки</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Несветовые вывески</a>
+            </div>
+            <div class="footer__about-container">
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Световые вывески</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Объемные буквы</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Бегущие строки</a>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Несветовые вывески</a>
+            </div>
+          </div>
+          <div class="footer__small-container">
+            <div class="footer__about-container">
+              <span class="footer__description-text">Все права защищены 2020 © 3 Кита</span>
+              <a href="#" rel="noopener" target="_blank" class="footer__description-text">Обработка персональных данных</a>
+            </div>
+            <div class="footer__small-block">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29" height="15" viewBox="0 0 29 15">
+                <image width="29" height="15" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAPCAYAAAAYjcSfAAACBUlEQVQ4jbXUS4jOURgG8N83hmiMS3JbuOQ2NkQuKyTXUiy/srCQxFZTNlbWIjZWrJGwsXJbyULuNeVabim3yJgyzMynV+83/ef/DYZ462xO5zzPeZ/neU+lWq3uRwfO4Zv/WxuxrhlLMRVNeInb6PrH1IswE6uwJEjXYCR24hYO4Co6c/U1QAytWjAabWjHlvqtIO1O0qgFOIqPOI1DeP2XpNuxK1VsKez3BmmtsDEc49GKbdiAFziBM/jaAD2wQr4dmIdpmJiNNRVO1ZpLl0LKDxmq95idEq3GWDzC83zIlwSchBmYhcWYgDe4gZ60bz5GFOUtVxw8hUu5H51vxbKU6lqC1kmnYDkW4hn25OOi5qRlbUWOwUgr2V29wt9jOJ4PUghXEN/B3QJWT+HuGAwrEwxGquRzLb2MsyuT8F4+ZlRKNxk38baE09uA/BPSnkKiw4+5GazOBH1QAOvLmQ7yanYW95/m2NUSq/Y70jB8RYaomp4G0JX0uaNwNgAfZteR9s05Ht3pcVcGq5he8Q1GWseV5Kzkl3gdB3ExAQa8uFSVHLkIzl5symzU8fqVbC5t1H2I0JzFq0zk5waKxqp7H37vw5H8a3fnWPU3GqThQ1T8uefz/72MJ0MgGqxCoce5Qvr7mI61WB9pDtIY9JDhAg7n5/ArGf+k3uFkjs2nH/NK63fHyX5vrswpXAAAAABJRU5ErkJggg=="/>
+              </svg>
+              <span class="footer__name-org">Забацано в M-Band</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

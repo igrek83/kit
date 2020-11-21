@@ -1,0 +1,7 @@
+.service__li-span {
+  color: #000;
+}
+
+.service__li-span:hover {
+  color: rgb(134, 130, 130)
+}

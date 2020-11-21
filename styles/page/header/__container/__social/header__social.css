@@ -1,0 +1,24 @@
+@import url(./__social-icon/header__social-icon.css);
+.header__social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+}
+
+@media all and (max-width: 768px) {
+  .header__social {
+    flex-direction: column;
+    width: 30px;
+    min-height: 80px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .header__social {
+    flex-direction: row;
+    width: 100px;
+    min-height: 30px;
+    margin-bottom: 20px;
+  }
+}

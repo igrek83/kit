@@ -1,0 +1,11 @@
+@import url(./__container/header__container.css);
+@import url(./__block/header__block.css);
+@import url(./__mini-block/header__mini-block.css);
+.header {
+  width: 100%;
+  background-image: url(../../../images/fon.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

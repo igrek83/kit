@@ -1,0 +1,23 @@
+@import url('./__block-text/about__block-text.css');
+@import url('./__block-span/about__block-span.css');
+.about__block {
+  position: relative;
+  width: 275px;
+  background-color: #185690;
+  padding: 15px 10px;
+  top: -70px;
+}
+
+@media all and (max-width: 1024px) {
+  .about__block {
+    position: static;
+    width: 500px;
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .about__block {
+    width: 300px;
+  }
+}

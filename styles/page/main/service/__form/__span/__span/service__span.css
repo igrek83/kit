@@ -1,0 +1,21 @@
+.service__span {
+  width: 320px;
+  font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2.2px;
+  color: #565656;
+}
+
+@media all and (max-width: 1024px) {
+  .service__span {
+    margin-bottom: 15px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .service__span {
+    width: 300px;
+    font-size: 16px;
+  }
+}

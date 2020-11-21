@@ -1,0 +1,38 @@
+@import url(./__input/description__input.css);
+@import url(./__slider-container/description__slider-container.css);
+.description__slider-block {
+  width: 1200px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@media all and (max-width: 1400px) {
+  .description__slider-block {
+    width: 1000px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .description__slider-block {
+    width: 800px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .description__slider-block {
+    width: 600px;
+  }
+}
+
+@media all and (max-width: 660px) {
+  .description__slider-block {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .description__slider-block {
+    width: 200px;
+  }
+}

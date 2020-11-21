@@ -1,0 +1,16 @@
+.service__item_theme_h {
+  background-image: url(../../../../../../images/pl-8.jpg);
+  background-size: cover;
+}
+
+.service__item_theme_h:hover {
+  background-image: none;
+}
+
+.service__item_theme_h:hover>.service__mini-block {
+  display: none;
+}
+
+.service__item_theme_h:hover>.service__description {
+  display: flex;
+}

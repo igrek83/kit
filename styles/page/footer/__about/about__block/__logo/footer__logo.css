@@ -1,0 +1,5 @@
+@media all and (max-width: 1000px) {
+  .footer__logo {
+    align-self: center;
+  }
+}

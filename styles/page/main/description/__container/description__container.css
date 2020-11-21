@@ -1,0 +1,15 @@
+@import url(./__block/description__block.css);
+@import url(./__big-block/description__big-block.css);
+.description__container {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+@media all and (max-width: 1070px) {
+  .description__container {
+    width: 95%;
+    align-items: center;
+    flex-direction: column;
+  }
+}

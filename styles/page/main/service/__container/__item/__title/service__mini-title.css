@@ -1,0 +1,9 @@
+.service__mini-title {
+   font-family: 'HelveticaNeueCyr', Arial, Helvetica, sans-serif; 
+   font-weight: 500;
+   color: #fff;
+   font-size: 20px;
+   width: 150px;
+   text-align: center;
+   margin-top: 10px;
+}

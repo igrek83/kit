@@ -1,0 +1,8 @@
+@import url(./__form/service__form.css);
+@import url(./__container/service__container.css);
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

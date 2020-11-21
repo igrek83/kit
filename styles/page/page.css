@@ -1,0 +1,28 @@
+@import url(./header/header.css);
+@import url(./main/main.css);
+@import url(./footer/footer.css);
+.page {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+@media all and (max-width: 1919px) {
+  .page {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .page {
+    width: 320px;
+  }
+}

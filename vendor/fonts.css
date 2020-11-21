@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'appetite';
+  src: url('./fonts/appetite.woff2') format('woff2'),
+    url('./fonts/appetite.woff') format('woff'),
+    url('./fonts/appetite.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./fonts/HelveticaNeueCyr-Medium.otf') format('otf'),
+    url('./fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+    url('./fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./fonts/HelveticaNeueCyr-Bold.otf') format('otf'),
+    url('./fonts/HelveticaNeueCyr-Black.woff') format('woff'),
+    url('./fonts/HelveticaNeueCyr-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
